@@ -40,13 +40,11 @@ var getJSONData = function(url){
     });
 }
 
-//FunciÃ³n que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
+
 document.addEventListener("DOMContentLoaded", function(e){
 });
 
-//Con este codigo se obtienen los datos de la foto
+//foto
 
 let usuarios = JSON.parse( localStorage.getItem("usuario"));
 document.getElementById('nombre').innerHTML= usuarios.nombre;
