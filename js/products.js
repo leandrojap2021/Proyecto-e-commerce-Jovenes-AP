@@ -1,7 +1,5 @@
-//Función que se ejecuta una vez que se haya lanzado el evento de
-//que el documento se encuentra cargado, es decir, se encuentran todos los
-//elementos HTML presentes.
-let categoriesArray = []; //Creamos un arreglo
+
+let categoriesArray = []; //Aqui creamos un arreglo
 
 document.addEventListener("DOMContentLoaded", function (e) {
 
@@ -9,20 +7,22 @@ document.addEventListener("DOMContentLoaded", function (e) {
         if (resultObj.status === "ok")
         {
             categoriesArray = resultObj.data;
-            //Muestro las categorías ordenadas
+            
             showCategoriesList(categoriesArray);
-        }
+        }//se ven aca las categorias 
     });
     
 });   
 
-//Con esta funcion vamos a mostrar nuestro a arreglo ademas de filtrarlo por precio
+
 
 function showCategoriesList(array){
  
-    if(array == undefined){
+    if(array == undefined){                       //En esta funcion se ve el arreglo ademas de hacerse el filtrado de precio
         array = categoriesArray;
     }
+
+
 
     maximo = parseInt(document.getElementById('cantidadMax').value);
     minimo = parseInt(document.getElementById('cantidadMin').value);
@@ -56,25 +56,25 @@ function showCategoriesList(array){
     
 }
 
-//TODAS LAS FUNCIONES AL MOMENTO DE LLAMARLAS
+//funciones de orden
 
-//Aca llamamos a la funcion para ordenar de manera ascendente
+
 document.getElementById('Asc').addEventListener('click', ()=>{
     ordenarAsc();
 });
-//Aca llamamos a la funcion para ordenar de manera descendente
+
 document.getElementById('Desc').addEventListener('click', ()=>{
     ordenarDesc();
 });
-//Aca llamamos a la funcion para ordenar por relevancia
+
 document.getElementById('relevancia').addEventListener('click', ()=>{
     ordenarRel();
 });
-//Aca llamamos a la funcion buscar al momento de precionar una tecla, mientras vamos escribiendo
+
 document.getElementById('buscador').addEventListener('keyup', ()=> {
     buscar();
 })
-//Aca restrablecemos todos los valores de nuevo y mostrarmos la lista sin filtros
+
 document.getElementById("limpiarfiltro").addEventListener("click", () => {
     document.getElementById("cantidadMin").value = "0";
     document.getElementById("cantidadMax").value = "99999";
@@ -86,25 +86,25 @@ document.getElementById("limpiarfiltro").addEventListener("click", () => {
     showCategoriesList(categoriesArray);
 });
 
-//DECLARACION DE TODAS LAS FUNCIONES PARA ORDENAR Y FILTRAR
+//Funciones declaradas para ordenar y filtrar
 
-//Aca utilizamos la funcion de ordenar y luego la mostramos ordenada
+
 function ordenarAsc(){
     ordenarPrecios(categoriesArray);
     showCategoriesList(categoriesArray);
 }
-//Aca utilizamos la funcion de ordenar la damos vuelta y luego la llamamos de manera reversa
+
 function ordenarDesc(){
     ordenarPrecios(categoriesArray);
     categoriesArray.reverse();
     showCategoriesList(categoriesArray);
 }
-//Aca utilizamos la funcion de ordenar pero por relevancia y luego la mostramos ordenada
+
 function ordenarRel(){
     ordenarRelevancia(categoriesArray);
     showCategoriesList(categoriesArray);
 }
-//En esta funcion utilizamos el sort para poder ordenar de manera ascendete los precios
+
 function ordenarPrecios(){
     categoriesArray.sort((a,b)=>{
         if (a.cost > b.cost){
@@ -117,7 +117,7 @@ function ordenarPrecios(){
         }
     });
 }
-//En esta funcion se utliza sort para ordenar la relevacion, osea cantidad de articulos vendidos
+
 function ordenarRelevancia(){
     categoriesArray.sort((a,b)=>{
         if (a.soldCount > b.soldCount){
@@ -130,7 +130,7 @@ function ordenarRelevancia(){
         }
     });
 }
-//En esta funcion utilizamos filer para poder ir filtrando al array por nombre de cada articulos
+
 function buscar(){
     let producto = document.getElementById('buscador').value;
 
