@@ -13,6 +13,8 @@
 
     <link href="css/bootstrap.min.css" rel="stylesheet">
     <link href="css/styles.css" rel="stylesheet">
+    <meta name="google-signin-scope" content="profile email">
+     <meta name="google-signin-client_id" content="203749035499-fkef8a1vdmgsr8jjg4tsfh4srm3tud3v.apps.googleusercontent.com">
   </head>
   <body>
     <nav class="site-header sticky-top py-1 bg-dark">
@@ -22,6 +24,8 @@
         <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
         <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
         <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+        <!-- Agrego el usuario que se conecta -->
+        <a class="py-2 d-none d-md-inline-block"><span class="btn btn-warning"id="nombre"></span> </a>
       </div>
     </nav>
     <main role="main" class="pb-5">
@@ -80,12 +84,20 @@
         </p>
         <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
         <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+        <p>
+          <button onclick="desconectar();" class="btn btn-warning">Logout</button>
+        </p>
       </div>
+
     </footer>
+
     <div id="spinner-wrapper"><div class="lds-ring"><div></div><div></div><div></div><div></div></div></div>
     <script src="js/jquery-3.4.1.min.js"></script>
     <script src="js/bootstrap.bundle.min.js"></script>
     <script src="js/init.js"></script>
     <script src="js/categories.js"></script>
+    <script src="https://apis.google.com/js/platform.js?onload=onLoad" async defer></script>
+    <script src="js/logout.js"></script>
+    <script src="js/google.js"></script>
   </body>
 </html>

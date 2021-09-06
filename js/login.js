@@ -6,6 +6,7 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 });
 function redirection(){
+    let usuarios = {};
    let usuario = document.getElementById("usuario");
 
 let contrasena = document.getElementById("contrasena");
@@ -14,6 +15,9 @@ if (usuario.value.trim()===""){
     //Aca va a ser cuando esto esta vacio no se va a  poder avanzar de pagina
 } else{
     location.href="home.html";
+    usuarios.nombre = usuario.value;
+localStorage.setItem("usuario", JSON.stringify(usuarios));
+        sessionStorage.setItem("usuario", JSON.stringify(usuarios));
 }
 
     }
