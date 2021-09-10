@@ -527,3 +527,6 @@ iframe {
     padding-right: 15px;
   }
 }
+/*//////agregado de decoración*/
+#nombre {float: right;}
+.derecha {float: right;}
