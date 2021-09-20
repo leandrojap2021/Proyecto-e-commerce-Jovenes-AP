@@ -13,37 +13,125 @@
   <link href="css/font-awesome.min.css" rel="stylesheet">
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
+  <link href="css/estrellas.css" rel="stylesheet">
+  <!--Sweet alert-->
+  <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4=" crossorigin="anonymous"></script>
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">e-mercado</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="categories.html">Categorías</a>
+          </li><li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="sell.html">Vender</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="cart.html">Mi Carrito</a>
+          </li>
+          
+        </ul>
+        <div class="derecha">
+        <a class="py-2 d-none d-md-inline-block"><span class="btn btn-warning"id="nombre"></span> </a>
+        <form class="d-flex">
+        </div>
+        
+        
+        </form>
+      </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <!-- comento esto porque no va
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 3 (Fecha de entrega: 19/09/2021) y Entrega 4 (Fecha de entrega: 03/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <main role="main">
+    <div class="container mt-5">
+      <div class="text-center p-4">
+        <h2>Descripción del producto</h2>
+        <p class="lead">Encontrarás aquí toda la información del producto seleccionado.</p>
+        <p class="small alert-warning py-3"><strong>Nota: </strong>por simplicidad, cualquiera sea el producto
+          seleccionado previamente, siempre se visualizará el presente: <strong>Chevrolet Onix Joy</strong>.</p>
+      </div>
+      <h3 id="productName"></h3>
+      <hr class="my-3">
+      <dl>
+        <dt>Descripción</dt>
+        <dd>
+          <p id="productDescription"></p>
+        </dd>
+
+        <dt>Precio del producto</dt>
+        <dd>
+          <p id="productCost"></p>
+        </dd>
+
+        <dt>Categoría del producto</dt>
+        <dd>
+          <p id="category"></p>
+        </dd>
+
+        <dt>Unidades vendidas del producto</dt>
+        <dd>
+          <p id="soldCount"></p>
+        </dd>
+
+        <dt>Imágenes ilustrativas</dt>
+        <dd>
+          <div class="row text-center text-lg-left pt-2" id="productImagesGallery">
+          </div>
+        </dd>
+      </dl>
+      <a type="button" class="btn btn-light btn-lg btn-block" href="products.html">Volver a productos</a>
     </div>
-    -->
-  
+    <div class="text-center p-4 container mt-5">
+      <h2>Comentarios</h2>
+      <hr class="my-3">
+    </div>
+    <div class="container">
+      <div>
+          <div class="list-group" id="com-list-container">
+          </div>   
+      </div>
   </div>
-  <footer class="text-muted">
+  <div class="p-4 container mt-5">
+    <h2>Comentar</h2>
+    <hr class="my-3">
+    <div class="container">
+      <!-- <label> Usuario: <input class="form-control" type="text" id="user" placeholder="Nombre de usuario"></label><br> -->
+      <label> Comentario del producto: </label>
+      <div class="form-group">
+        <textarea id="commentText" rows="2" cols="50" placeholder="Ingrese comentario aquí"></textarea> 
+        <span id="void_field"></span>
+      </div>
+     
+      <span id="IncompleteFields" style="color: violet; font-weight: bold;"></span>
+      <button class="btn btn-primary" id="addCom" onclick="showUserComment();">Enviar comentario</button>
+      <button class="btn btn-danger" >Cancelar</button>
+    </div>
+  </div>
+  </main>
+  <footer class="text-muted bg-light">
     <div class="container">
       <p class="float-right">
         <a href="#">Volver arriba</a>
       </p>
       <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
       <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
+      <p>
+        <button onclick="desconectar();" class="btn btn-warning">Logout</button>
+      </p>
     </div>
+
   </footer>
   <div id="spinner-wrapper">
     <div class="lds-ring">
