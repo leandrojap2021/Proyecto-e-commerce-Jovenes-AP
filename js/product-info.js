@@ -48,6 +48,50 @@ document.addEventListener("DOMContentLoaded", function(e){
 
 var product = {};
 
+//mostrar imagenes relacionadas
+function showRelatedProducts(array){
+
+    let htmlContentToAppend = "";
+    for(let i = 0; i < related.lenght; i++){
+        let relProducts = products [array[i]];
+
+        htmlContentToAppend += `
+            <a href="category-info.html" class="list-group-item list-group-item-action">
+                <div class="row">
+                    <div class="col-3">
+                        <img src="` + relProducts.imgSrc + `" alt="` +relProducts.description + `" class="img-thumbnail">
+                    </div>
+                    <div class="col">
+                        <div class="d-flex w-100 justify-content-between">
+                            <h4 class="mb-1">`+ relProducts.name +`</h4>
+                            <small class="text-muted">` + relProducts.productCount + ` artículos</small>
+                        </div>
+                        <p class="mb-1">` + relProducts.description + `</p>
+                        <p class="text-muted">` + relProducts.currency + relProducts.cost `</p>
+                    </div>
+                </div>
+            </a>
+            `
+
+            document.getElementById("relatedProductsImg").innerHTML = htmlContentToAppend;
+    }
+   
+}
+
+
+document.addEventListener("DOMContentLoaded", function (e) {
+
+    getJSONData(PRODUCTS_URL)
+    .then(function (resultObj) {
+        if (resultObj.status === "ok") {
+            products = resultObj.data;                  //se llama a la funcion getJSONData y se ejecuta el eventto luego de tener el html 
+            related = info.relatedProducts;
+            showRelatedProducts(products, related);
+        }
+    });
+
+});
+
 function showImagesGallery(array) {
 
     let htmlContentToAppend = "";
