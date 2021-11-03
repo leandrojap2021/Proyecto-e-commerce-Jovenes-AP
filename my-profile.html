@@ -34,41 +34,96 @@
 </head>
 
 <body>
-  <nav class="site-header sticky-top py-1 bg-dark">
-    <div class="container d-flex flex-column flex-md-row justify-content-between">
-      <a class="py-2 d-none d-md-inline-block" href="home.html">Inicio</a>
-      <a class="py-2 d-none d-md-inline-block" href="categories.html">Categorías</a>
-      <a class="py-2 d-none d-md-inline-block" href="products.html">Productos</a>
-      <a class="py-2 d-none d-md-inline-block" href="sell.html">Vender</a>
-      <a class="py-2 d-none d-md-inline-block" href="cart.html">Mi carrito</a>
+  <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="">e-mercado</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="home.html">Home</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="categories.html">Categorías</a>
+          </li><li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="products.html">Productos</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link active" aria-current="page" href="sell.html">Vender</a>
+          </li>
+          
+          
+        </ul>
+        <div class="dropdown">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="nombre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            
+          </button>
+          <div class="dropdown-menu" aria-labelledby="nombre">
+            <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
+            <a class="dropdown-item" href="my-profile.html">Mi Perfil</a>
+            <a onclick="desconectar();" class="dropdown-item" href="index.html">Salir</a>
+          </div>
+        </div>
+        
+        
+        </form>
+      </div>
     </div>
   </nav>
-  <div class="container p-5">
-    <div class="alert alert-danger" role="alert" style="position: relative; width:auto; top: 0;">
-      <h4 class="alert-heading">¡A trabajar! :)</h4>
-      <p>Esta sección corresponde a: Entrega 6 (Fecha de entrega: 31/10/2021).</p>
-      <hr>
-      <p class="mb-0">Para saber qué debes hacer, fijate en la actividad en CREA correspondiente a esta entrega.</p>
+  <div class="container">
+    <div class="text-center p-4">
+      <u><h2>Perfil</h2></u>
     </div>
-  </div>
-  <footer class="text-muted bg-light">
-    <div class="container">
-      <p>Este sitio forma parte de Desarrollo Web - JAP - 2020</p>
-      <p>Clickea <a target="_blank" href="Letra.pdf">aquí</a> para descargar la letra del obligatorio.</p>
-    </div>
-  </footer>
-  <div class="alert fade alert-success" role="alert" id="alertResult">
-    <span id="resultSpan"></span>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-  <div id="spinner-wrapper">
-    <div class="lds-ring">
-      <div></div>
-      <div></div>
-      <div></div>
-      <div></div>
+    <div class="row justify-content-md-center">
+      <div class="col-md-8 order-md-1">
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="productName"> Nombre: <b><span id="innerName"></span></b></label>
+            <input type="text" class="form-control" id="firstName" placeholder="Campo requerido" value="" required>
+            <div class="invalid-feedback">
+              
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="productName">Apellido: <b><span id="innerLastName"></span></b></label>
+            <input type="text" class="form-control" id="secondName" placeholder="Campo requerido" value="" required>
+            <div class="invalid-feedback">
+              
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-6 mb-3">
+            <label for="edad">Edad: <b><span id="innerAge"></span></b></label>
+<input type="number" class="form-control" placeholder="Campo requerido" id="edad" name="edad"
+       min="1" max="100" required>
+            <div class="invalid-feedback">
+              
+            </div>
+          </div>
+          <div class="col-md-6 mb-3">
+            <label for="productName">E-mail: <b><span id="innerMail"></span></b></label>
+            <input type="text" class="form-control" id="mail" placeholder="example@..." value="" required>
+            <div class="invalid-feedback">
+             
+            </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col text-center">
+            <label for="productName">Celular: <b><span id="innerCel"></span></b></label>
+            <input type="text" class="form-control" id="cel" placeholder="                                                                              09xxxxxxx" value="">
+            <div class="invalid-feedback">
+             
+            </div>
+          </div>
+        </div>
+       
+        <hr class="mb-4">
+        <button class="btn btn-primary col text-center" type="submit" id="save" onclick= "perfil();">Guardar cambios</button>
+      </div>
     </div>
   </div>
   <script src="js/jquery-3.4.1.min.js"></script>
