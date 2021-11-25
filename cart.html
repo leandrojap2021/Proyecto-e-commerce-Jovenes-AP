@@ -11,9 +11,10 @@
 
   <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
   <link href="https://fonts.googleapis.com/css?family=Raleway:300,300i,400,400i,700,700i,900,900i" rel="stylesheet">
- <!--Google-->
- <meta name="google-signin-scope" content="profile email">
- <meta name="google-signin-client_id" content="744285213049-kflhhug8nuks38b1r6vdq07ejqt93aio.apps.googleusercontent.com">
+  <!--Google-->
+  <meta name="google-signin-scope" content="profile email">
+  <meta name="google-signin-client_id"
+    content="744285213049-kflhhug8nuks38b1r6vdq07ejqt93aio.apps.googleusercontent.com">
 
   <style>
     .bd-placeholder-img {
@@ -30,8 +31,6 @@
         font-size: 3.5rem;
       }
     }
-
-    
   </style>
   <link href="css/bootstrap.min.css" rel="stylesheet">
   <link href="css/styles.css" rel="stylesheet">
@@ -42,7 +41,8 @@
   <nav class="navbar navbar-expand-lg navbar-light bg-light">
     <div class="container-fluid">
       <a class="navbar-brand" href="">e-mercado</a>
-      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent"
+        aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarSupportedContent">
@@ -52,18 +52,20 @@
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="categories.html">Categorías</a>
-          </li><li class="nav-item">
+          </li>
+          <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="products.html">Productos</a>
           </li>
           <li class="nav-item">
             <a class="nav-link active" aria-current="page" href="sell.html">Vender</a>
           </li>
-          
-          
+
+
         </ul>
         <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="nombre" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="nombre" data-toggle="dropdown"
+            aria-haspopup="true" aria-expanded="false">
+
           </button>
           <div class="dropdown-menu" aria-labelledby="nombre">
             <a class="dropdown-item" href="cart.html">Ver mi Carrito</a>
@@ -71,8 +73,8 @@
             <a onclick="desconectar()" class="dropdown-item" href="index.html">Salir</a>
           </div>
         </div>
-        
-        
+
+
         </form>
       </div>
     </div>
@@ -80,7 +82,7 @@
   <div class="container mt-5">
     <div class="text-center p-4">
       <h2>Carrito</h2>
-      <p class="lead">Aquí se mostrará tu carrito de compras.</p>  
+      <p class="lead">Aquí se mostrará tu carrito de compras.</p>
     </div>
     <hr class="my-3">
     <div class="text-lg-left p-4">
@@ -101,32 +103,172 @@
           <th class="table-info" scope="col">Subtotal </th>
         </tr>
       </thead>
-      <tbody id="purchasedProd">
+      <tbody id="purshasedProd">
       </tbody>
     </table>
 
-    <hr class="my-3">
+      </div>
 
-    <div class="text-lg-left p-4">
-      <h4 class="table-warning">Costos:</h4>
-      <div class="list-group-item">
-        <div class="row">
-            <div class="col">
-                <div class="d-flex w-100 justify-content-between">
-                    <h4 class="mb-1"> Total: </h4>
-                    <p class="float-right" id="total"> </p>
-                  </div> 
-            </div>
+      <hr class="mb-4">
+      <h4 class="mb-3">Tipo de envío</h4>
+      <div class="d-block my-3">
+        <div class="custom-control custom-radio">
+          <input id="standardRadio" name="shippingRadio" type="radio" class="custom-control-input" required=""
+            checked="">
+          <label class="custom-control-label" for="standardRadio">Standard 12 a 15 días (5%)</label>
         </div>
-    </div>    
+        <div class="custom-control custom-radio">
+          <input id="expressRadio" name="shippingRadio" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="expressRadio">Express 5 a 8 días (7%)</label>
+        </div>
+        <div class="custom-control custom-radio">
+          <input id="premiumRadio" name="shippingRadio" type="radio" class="custom-control-input" required="">
+          <label class="custom-control-label" for="premiumRadio">Premium 2 a 5 días (15%)</label>
+        </div>
+      </div>
+      <h4 class="mb-3">Dirección de envío</h4>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="shippingStreet">Calle</label>
+          <input type="text" class="form-control" id="shippingStreet" placeholder="" value="">
+          <div class="invalid-feedback">
+            Ingrese una calle.
+          </div>
+        </div>
+        <div class="col-md-4 mb-3">
+          <label for="shippingStreetNumber">Número</label>
+          <input type="number" class="form-control" id="shippingStreetNumber" placeholder="" value="" min="0"
+            max="9999">
+          <div class="invalid-feedback">
+            Ingrese un número de puerta.
+          </div>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col-md-6 mb-3">
+          <label for="shippingCornerStreet">Esquina</label>
+          <input type="text" class="form-control" id="shippingCornerStreet" placeholder="" value="">
+          <div class="invalid-feedback">
+            Ingresa una esquina.
+          </div>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row">
+        <div class="col">
+          <h4 class="mb-3">Costos</h4>
+          <ul class="list-group mb-3">
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Subtotal</h6>
+                <small class="text-muted">Costo unitario del producto por cantidad</small>
+              </div>
+              <span class="text-muted" id="total">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between lh-condensed">
+              <div>
+                <h6 class="my-0">Costo de envío</h6>
+                <small class="text-muted">Según el tipo de envío</small>
+              </div>
+              <span class="text-muted" id="shippingCost">-</span>
+            </li>
+            <li class="list-group-item d-flex justify-content-between">
+              <span>Total ($)</span>
+              <strong id="finalTotal">-</strong>
+            </li>
+          </ul>
+        </div>
+      </div>
+      <hr class="mb-4">
+      <div class="row">
+        <div class="col">
+          <h4 class="mb-3">Forma de pago</h4>
+      <div>
+        <button type="button" class="btn btn-link" data-toggle="modal" data-target="#modalPayment"><b> Seleccionar
+            metodo de pago</b></button>
+        <!-- Modal -->
+        <div class="modal fade" id="modalPayment" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle"
+          aria-hidden="true">
+          <div class="modal-dialog modal-dialog-centered" role="document">
+            <div class="modal-content">
+              <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Forma de pago</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div class="modal-body">
+                <div class="custom-control custom-radio">
+                  <input id="creditCardPaymentRadio" name="paymentType" type="radio" class="custom-control-input">
+                  <label class="custom-control-label" for="creditCardPaymentRadio">Tarjeta de crédito</label>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="shippingStreet">Número de tarjeta</label>
+                      <input type="text" class="form-control" id="creditCardNumber" placeholder="" value="">
+                      <div class="invalid-feedback">
+                        Ingresa un número de tarjeta
+                      </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                      <label for="shippingStreetNumber">Código de seguridad</label>
+                      <input type="number" class="form-control" id="creditCardSecurityCode" placeholder="" value="">
+                      <div class="invalid-feedback">
+                        Ingresar digitos de seguridad
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="dueDate">Vencimiento (Month/year)</label>
+                      <input type="text" class="form-control" id="dueDate" placeholder="" value="">
+                      <div class="invalid-feedback">
+                        Fecha de vencimiento
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                    <div class="custom-control custom-radio">
+                      <input id="bankingRadio" name="paymentType" type="radio" class="custom-control-input">
+                      <label class="custom-control-label" for="bankingRadio">Transferencia bancaria</label>
+                    </div>
+                  </div>
+                  <hr>
+                  <div class="row">
+                    <div class="col-md-6 mb-3">
+                      <label for="bankAccountNumber">Número de cuenta bancaria</label>
+                      <input type="text" class="form-control" id="bankAccountNumber" placeholder="" value="">
+                      <div class="invalid-feedback">
+                        Ingresa un número de cuenta
+                      </div>
+                    </div>
+                  </div>
+
+                </div>
+                <div class="modal-footer">
+                  <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                  <button type="button" class="btn btn-primary">Save changes</button>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
     </div>
   </div>
-  <div class="container">
-    <div class="text-lg-left p-4">
-      <h4>Tipo de envío:</h4>
-      
-    </div>
-    
+  <div class="invalid-feedback" id="paymentTypeFeedback">
+    Debe seleccionar una forma de pago
+  </div>
+  </div>
+  </div>
+  <div class="row">
+   <br><br><br> <button class="btn btn-primary btn-lg my-5" type="submit">Finalizar compra</button>
+  </div>
+  </form>
+  </div>
+  </div>
+  </div>
 
 
 
